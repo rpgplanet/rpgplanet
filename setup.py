@@ -1,23 +1,17 @@
 from setuptools import setup, find_packages
-import djangobaseproject
-
-# all fields marked with TODO: REPLACE
-# must be filled with some meanigful values
+import rpghrac
 
 setup(
-    name = 'djangobaseproject',
-    version = djangobaseproject.__versionstr__,
-    description = 'Django Base Project', # TODO: REPLACE
-    long_description = '\n'.join(( # TODO: REPLACE
-        'Django Base Project',
+    name = 'rpghrac',
+    version = rpghrac.__versionstr__,
+    description = 'RPG hrac',
+    long_description = '\n'.join((
+        'RPG hrac',
         '',
-        'this project (python module) is meant as a skeleton',
-        'for any centrumholdings django based projects',
     )),
-    author = 'centrum holdings s.r.o', # TODO: REPLACE
-    author_email='devel@centrumholdings.com', # TODO: REPLACE
-    license = 'BSD', # TODO: REPLACE
-    url='http://git.netcentrum.cz/projects/django/GIT/django-base-project.git/', # TODO: REPLACE
+    author = 'Almad',
+    author_email='bugs@almad.net',
+    license = 'BSD',
 
     packages = find_packages(
         where = '.',
@@ -26,7 +20,6 @@ setup(
 
     include_package_data = True,
 
-    # TODO: REPLACE
     classifiers = [
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
@@ -38,15 +31,9 @@ setup(
     ],
     entry_points = {
         'setuptools.file_finders': ['dummy = setuptools_entry:dummylsfiles'],
-        # TODO: how to have manage.py executable?
-#        'setuptools.installation': ['eggsecutable = djangobaseproject.manage'],
+        'setuptools.installation': ['eggsecutable = rpghrac.manage'],
     },
-    setup_requires = [
-#        'setuptools_git', # TODO: add dummy to pypi?
-    ],
     install_requires = [
-#        'django',
-#        'djangobaselibrary',
         'setuptools>=0.6b1',
     ],
 )
