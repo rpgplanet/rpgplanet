@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
-# Django base settings for djangobaseproject project.
+# Django base settings for rpghrac project.
 
 from os.path import dirname, join
 
-import djangobaseproject
+import ella
+import django
+import rpghrac
 
 
 DEBUG = True
@@ -37,12 +39,12 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = join(dirname(djangobaseproject.__file__), 'static')
+MEDIA_ROOT = join(dirname(rpghrac.__file__), 'static')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/static/djangobaseproject'
+MEDIA_URL = '/static/rpghrac'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -51,6 +53,13 @@ ADMIN_MEDIA_PREFIX = '/static/admin_media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '^980$0s46q1(toq*mu23m41_ac_@vwy)+mig=ka_97$m0^fh)v'
+
+
+ADMIN_ROOTS = (
+    join(dirname(ella.__file__), 'newman', 'media'),
+    join(dirname(django.__file__), 'contrib', 'admin', 'media'),
+)
+
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -65,29 +74,40 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'djangobaseproject.urls'
+ROOT_URLCONF = 'rpghrac.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    join(dirname(djangobaseproject.__file__), 'templates'),
+    join(dirname(rpghrac.__file__), 'templates'),
+    join(dirname(ella.__file__), 'newman', 'templates'),
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.request',
     'django.core.context_processors.auth',
+    'ella.newman.context_processors.newman_media',
+    'ella.core.context_processors.url_info',
 )
 
 INSTALLED_APPS = (
     # internal apps
-    'djangobaseproject.service', # fixtures and so on
-#    'djangobaselibrary.sample', # sample base library from djangobaselibrary
-    'djangobaseproject.sample', # sample base library but directly in djangobaseproject
+    'rpghrac.service',
 
     # external apps
-#    'django_extensions',
+    'rpgrules',
+    'rpgext.extcore',
+    'rpgext.drd',
+    'south',
+    'ella',
+    'ella.core',
+    'ella.newman',
+    'ella.newman.licenses',
+    'ella.photos',
+    'django.contrib.admin',
+    'djangomarkup',
 
     # core django apps
     'django.contrib.auth',
@@ -97,3 +117,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 )
 
+VERSION = rpghrac.__versionstr__
+
+CHERRYPY_TEST_SERVER = True

@@ -1,16 +1,28 @@
-from os.path import dirname, join
+from os.path import dirname, join, normpath
 
+import django
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
 
-import djangobaseproject
+import ella
+from ella import newman
 
 
 admin.autodiscover()
+newman.autodiscover()
 
 
 urlpatterns = patterns('',)
+
+ADMIN_ROOTS = (
+    normpath(join(dirname(ella.__file__), 'newman', 'media')),
+    normpath(join(dirname(django.__file__), 'contrib', 'admin', 'media')),
+)
+
+js_info_dict = {
+    'packages': ('ella.newman',),
+}
 
 if settings.DEBUG:
     urlpatterns += patterns('',
@@ -19,19 +31,21 @@ if settings.DEBUG:
     )
 
 urlpatterns += patterns('',
-    # Example:
-    # (r'^djangobaseproject/', include('djangobaseproject.foo.urls')),
 
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs'
-    # to INSTALLED_APPS to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    # serve admin media static files
+    (r'^static/newman_media/(?P<path>.*)$', 'ella.utils.views.fallback_serve', {'document_roots': ADMIN_ROOTS}),
+    (r'^static/admin_media/(?P<path>.*)$', 'ella.utils.views.fallback_serve', {'document_roots': ADMIN_ROOTS}),
 
-    # Uncomment the next line to enable the admin:
-    (r'^admin/(.*)', admin.site.root),
+    # newman JS translations
+    (r'^cmsmin/jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
 
-    # simple views from djangobaselibrary.sample app
-#    (r'^', include('djangobaselibrary.sample.urls')),
-    # simple views from djangobaseproject.sample app
-    (r'^', include('djangobaseproject.sample.urls')),
+    # main admin urls
+    ('^cmsmin/', include(newman.site.urls)),
+
+    # ella urls
+    # ella urls
+    ('^', include('ella.core.urls')),
 )
 
+handler404 = 'ella.core.views.page_not_found'
+handler500 = 'ella.core.views.handle_error'
