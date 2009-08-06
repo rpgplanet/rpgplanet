@@ -72,14 +72,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'rpgplayer.middleware.SetDomainOwnerMiddleware'
 )
 
 ROOT_URLCONF = 'rpghrac.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
     join(dirname(rpghrac.__file__), 'templates'),
     join(dirname(ella.__file__), 'newman', 'templates'),
 )
@@ -95,12 +93,15 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 INSTALLED_APPS = (
     # internal apps
     'rpghrac.service',
+    'rpghrac.rpgplayer',
 
     # external apps
     'rpgrules',
     'rpgext.extcore',
     'rpgext.drd',
-    'south',
+    'rpgext.strepysnu',
+    
+#    'south',
     'ella',
     'ella.core',
     'ella.newman',
@@ -117,6 +118,10 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 )
 
+AUTH_PROFILE_MODULE = 'rpgplayer.UserProfile'
+
 VERSION = rpghrac.__versionstr__
 
 CHERRYPY_TEST_SERVER = True
+
+

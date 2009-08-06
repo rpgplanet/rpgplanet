@@ -27,3 +27,8 @@ CACHE_LONG_TIMEOUT = 60*60
 TEST_MEDIA_URL = "/testing_media/"
 
 NEWMAN_MEDIA_PREFIX = '/static/newman_media/'
+
+SESSION_COOKIE_DOMAIN = '.rpghrac.cz'
+
+MAIN_SUBDOMAIN = 'www'
+

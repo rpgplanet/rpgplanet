@@ -8,6 +8,7 @@ from django.contrib import admin
 import ella
 from ella import newman
 
+from rpgplayer.views.ella import home
 
 admin.autodiscover()
 newman.autodiscover()
@@ -42,9 +43,10 @@ urlpatterns += patterns('',
     # main admin urls
     ('^cmsmin/', include(newman.site.urls)),
 
+    url( r'^$', home, name="root_homepage" ),
+
     # ella urls
-    # ella urls
-    ('^', include('ella.core.urls')),
+    #('^', include('ella.core.urls')),
 )
 
 handler404 = 'ella.core.views.page_not_found'
