@@ -1,5 +1,7 @@
-from os.path import join
+from os.path import dirname, join
 from tempfile import gettempdir
+
+import rpghrac
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -15,6 +17,23 @@ DATABASE_PORT = ''
 
 SECRET_KEY = 'tlucebubenicektlucenabuben$$$'
 
+# Absolute path to the directory that holds media.
+# Example: "/home/media/media.lawrence.com/"
+TEST_MEDIA_ROOT = MEDIA_ROOT = join(dirname(rpghrac.__file__), 'media')
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash if there is a path component (optional in other cases).
+# Examples: "http://media.lawrence.com", "http://example.com/media/"
+TEST_MEDIA_URL = MEDIA_URL = '/media/'
+
+# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
+# trailing slash.
+# Examples: "http://foo.com/media/", "/media/".
+ADMIN_MEDIA_PREFIX = '/static/admin_media/'
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = '^980$0s46q1(toq*mu23m41_ac_@vwy)+mig=ka_97$m0^fh)v'
+
 
 # we want to reset whole cache in test
 # until we do that, don't use cache
@@ -22,9 +41,6 @@ CACHE_BACKEND = 'dummy://'
 CACHE_TIMEOUT = 10*60
 CACHE_SHORT_TIMEOUT = 1*60
 CACHE_LONG_TIMEOUT = 60*60
-
-# can/should be set to None for production
-TEST_MEDIA_URL = "/testing_media/"
 
 NEWMAN_MEDIA_PREFIX = '/static/newman_media/'
 

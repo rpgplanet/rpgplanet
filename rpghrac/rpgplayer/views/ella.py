@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 from ella.core.views import CategoryDetail
 
 class SubdomainCategoryDetail(CategoryDetail):

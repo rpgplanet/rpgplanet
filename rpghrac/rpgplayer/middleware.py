@@ -14,7 +14,7 @@ class SetDomainOwnerMiddleware:
         if request.subdomain_text == settings.MAIN_SUBDOMAIN:
             raise Http404
         try:
-            request.site_owner = UserProfile.objects.get(slug=request.subdomain_text)
+            request.site_owner = UserProfile.objects.select_related().get(slug=request.subdomain_text)
         except UserProfile.DoesNotExist:
             raise Http404
         

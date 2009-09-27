@@ -8,7 +8,7 @@ from django.contrib import admin
 import ella
 from ella import newman
 
-from rpgplayer.views.ella import home
+from rpgplayer.views.home import home
 
 admin.autodiscover()
 newman.autodiscover()
@@ -33,21 +33,31 @@ if settings.DEBUG:
 
 urlpatterns += patterns('',
 
-    # serve admin media static files
-    (r'^static/newman_media/(?P<path>.*)$', 'ella.utils.views.fallback_serve', {'document_roots': ADMIN_ROOTS}),
-    (r'^static/admin_media/(?P<path>.*)$', 'ella.utils.views.fallback_serve', {'document_roots': ADMIN_ROOTS}),
 
     # newman JS translations
     (r'^cmsmin/jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
 
     # main admin urls
     ('^cmsmin/', include(newman.site.urls)),
-
+    
+    # true root is from rpgplayer
     url( r'^$', home, name="root_homepage" ),
+
+#    url( r'^$', home, name="root_homepage" ),
 
     # ella urls
     #('^', include('ella.core.urls')),
+
+    # serve admin media static files
+    (r'^static/newman_media/(?P<path>.*)$', 'ella.utils.views.fallback_serve', {'document_roots': ADMIN_ROOTS}),
+    (r'^static/admin_media/(?P<path>.*)$', 'ella.utils.views.fallback_serve', {'document_roots': ADMIN_ROOTS}),
 )
+
+urlpatterns += patterns('',
+    # serve static files
+    url(r'^%s/(?P<path>.*)$' % settings.TEST_MEDIA_URL.strip('/'), 'django.views.static.serve', {'document_root': settings.TEST_MEDIA_ROOT, 'show_indexes': True}),
+)
+
 
 handler404 = 'ella.core.views.page_not_found'
 handler500 = 'ella.core.views.handle_error'
