@@ -4,11 +4,12 @@ import django
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
+from django.contrib.auth.views import login
 
 import ella
 from ella import newman
 
-from rpgplayer.views.home import home
+from rpgplayer.views.home import home, register
 
 admin.autodiscover()
 newman.autodiscover()
@@ -42,6 +43,9 @@ urlpatterns += patterns('',
     
     # true root is from rpgplayer
     url( r'^$', home, name="root_homepage" ),
+
+    url(r'^prihlas/$', login, name="rpgplayer-login" ),
+    url(r'^register/$', register, name="rpgplayer-register" ),
 
 #    url( r'^$', home, name="root_homepage" ),
 
