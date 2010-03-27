@@ -1,21 +1,13 @@
-from djangomarkup.models import SourceText, TextProcessor
-
-from ella.core.models.main import Category, Author, Source
-from ella.articles.models import Article, ArticleContents
-
 from django.core.urlresolvers import reverse
 from django.db.transaction import commit_on_success
 from django.http import HttpResponseRedirect
 from django.views.generic.simple import direct_to_template
-from django.contrib.contenttypes.models import ContentType
 
+from ella.core.models.main import Category, Author, Source
+from ella.articles.models import Article, ArticleContents
 
-from django.template.defaultfilters import slugify
-from zapisnik.forms import ArticleForm
-
-from tagging.models import Tag
-
-DEFAULT_TEXT_PROCESSOR = u'czechtile'
+from rpghrac.zapisnik.forms import ArticleForm
+from rpghrac.zapisnik.zapisnik import Zapisnik
 
 def home(request, template="zapisnik/home.html"):
     return direct_to_template(request, template, {})
@@ -27,56 +19,29 @@ def new(request, template="zapisnik/new.html"):
     if request.method == "POST":
         article_form = ArticleForm(request.POST)
         if article_form.is_valid():
-            proc = TextProcessor.objects.get(name=DEFAULT_TEXT_PROCESSOR)
 
-            category, created = Category.objects.get_or_create(
-                title = "Main",
-                slug = "main",
-                tree_path = "",
-                site = request.site
-            )
-
-            author, created = Author.objects.get_or_create(
-                user = request.user,
-                name = request.user.username,
-                slug = slugify(request.user.username)
-            )
-            
-            article = Article.objects.create(
-                # updated = datetime.now()
-                description = article_form.cleaned_data['annotation'],
-                content_type = ContentType.objects.get_for_model(Article),
-                category = category
-            )
-            article.authors.add(author)
-
-            article.save()
-
-            content = ArticleContents.objects.create(
-                article = article,
+            zapisnik = Zapisnik(site=request.site, owner=request.site_owner, visitor=request.user)
+            article = zapisnik.create_article_draft(
+                annotation = article_form.cleaned_data['annotation'],
                 title = article_form.cleaned_data['title'],
-                content = article_form.cleaned_data['content']
+                content = article_form.cleaned_data['content'],
+                tags = article_form.cleaned_data['tags']
             )
 
-            SourceText.objects.create(
-                processor = proc,
-                content_type = ContentType.objects.get_for_model(ArticleContents),
-                object_id = content.pk,
-                field = 'content'
-            )
-
-            Tag.objects.update_tags(article, article_form.cleaned_data['tags'])
-
+            #TODO: redirect to article
             return HttpResponseRedirect(reverse("zapisnik-home"))
 
     if not article_form:
         article_form = ArticleForm()
 
-    # add category (root on user site)
-    # add author (owner of the site)
-    # add placement wrrking
-    # ? add placement (dilna)
-
     return direct_to_template(request, template, {
         'article_form' : article_form,
+    })
+
+def workshop(request, template="zapisnik/workshop.html"):
+    zapisnik = Zapisnik(site=request.site, owner=request.site_owner, visitor=request.user)
+    articles = zapisnik.get_drafts()
+
+    return direct_to_template(request, template, {
+        'articles' : articles
     })

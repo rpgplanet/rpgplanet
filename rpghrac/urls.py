@@ -10,6 +10,7 @@ import ella
 from ella import newman
 
 from rpgplayer.views.home import home, register
+from rpghrac.zapisnik import urls
 
 admin.autodiscover()
 newman.autodiscover()
@@ -33,11 +34,12 @@ urlpatterns = patterns('',
     url(r'^prihlas/$', login, name="rpgplayer-login"),
 #    url(r'^register/$', register, name="rpgplayer-register" ),
 
-    url('^zapisnik/$', include('zapisnik.urls')),
+    url('^zapisnik/$', include(urls)),
+    url("^zapisnik/new/$", 'zapisnik.views.new', name="zapisnik-new"),
+    url("^zapisnik/dilna/$", 'zapisnik.views.workshop', name="zapisnik-workshop"),
 
     # ella urls
     ('^tvorba/', include('ella.core.urls')),
-    url("^zapisnik/new/$", 'zapisnik.views.new', name="zapisnik-new"),
 
     # serve static files
     url(r'^%s/(?P<path>.*)$' % settings.TEST_MEDIA_URL.strip('/'), 'django.views.static.serve', {'document_root': settings.TEST_MEDIA_ROOT, 'show_indexes': True}),
