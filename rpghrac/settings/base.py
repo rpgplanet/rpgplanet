@@ -70,12 +70,14 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'ella.newman.context_processors.newman_media',
     'ella.core.context_processors.url_info',
+    'rpghrac.rpgplayer.context_processors.is_site_owner',
 )
 
 INSTALLED_APPS = (
     # internal apps
     'rpghrac.service',
     'rpghrac.rpgplayer',
+    'zapisnik',
 
     # external apps
     'rpgrules',
@@ -101,6 +103,7 @@ INSTALLED_APPS = (
 )
 
 AUTH_PROFILE_MODULE = 'rpgplayer.UserProfile'
+LOGIN_REDIRECT_URL = '/'
 
 VERSION = rpghrac.__versionstr__
 

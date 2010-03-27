@@ -1,0 +1,15 @@
+{% extends "zapisnik/main.html" %}
+
+{% block content %}
+
+<h1>Nový zápisek</h1>
+
+<form action="post">
+
+{{ article_form.as_table }}
+
+<input type="submit" value="Přídat" />
+
+</form>
+
+{% endblock %}

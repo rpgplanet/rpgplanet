@@ -1,0 +1,13 @@
+{% extends "zapisnik/main.html" %}
+
+{% block content %}
+
+<h1>Zápisník</h1>
+
+{% if is_site_owner %}
+
+<p><a href="{% url zapisnik-new %}">Vytvořit nový zápisek</a></p>
+
+{% endif %}
+
+{% endblock %}

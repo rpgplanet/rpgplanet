@@ -44,14 +44,14 @@
         <div id="s-profile">
           <img src="{{ MEDIA_URL }}img/avatars/almad.png" alt="Almad - avatar" width="40" height="50" />
           <div id="s-profile-text">
-            <p>přihlášen<br /><a href="">profil</a> &bull; <a href="">napsat zprávu</a><br />somethink cool</p>
+            <p>přihlášen<br />profil &bull; napsat zprávu</p>
           </div>
         </div>
         <div class="s-selections">
           <div class="s-selections-menu">
             <ul>
-            <li><a href="">ZÁPISNÍK</a></li>
-            <li><a href="">TVORBA</a></li>
+                <li><a href="{% url zapisnik-home %}">ZÁPISNÍK</a></li>
+                <li><a href="">TVORBA</a></li>
             </ul>
           </div>
           <div class="s-selections-main">
@@ -66,9 +66,11 @@
             <div class="s-selection-sort">
               <a href=""><img src="{{ MEDIA_URL }}img/buttons/s-selection-sort-minus.gif" alt="skrýt" /></a>&nbsp;<a href="">ROZPRACOVANÉ</a>
             </div>
+            <!--
             <div class="s-selection-sort">
               <a href=""><img src="{{ MEDIA_URL }}img/buttons/s-selection-sort-plus.gif" alt="zobrazit" /></a>&nbsp;<a href="">GALERIE</a>
             </div>
+            -->
           </div>
         </div>
       </div></div>
