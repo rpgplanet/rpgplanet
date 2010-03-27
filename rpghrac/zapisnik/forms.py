@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.forms import (
     Form, ModelForm, BaseForm,
     Field,
@@ -7,5 +9,7 @@ from django.forms import (
 )
 
 class ArticleForm(Form):
-    annotation = CharField(widget=Textarea(), label="Anotace")
-    content = CharField(widget=Textarea(), label="Obsah")
+    title = CharField(label=u"Název")
+    annotation = CharField(widget=Textarea(), label=u"Anotace")
+    content = CharField(widget=Textarea(), label=u"Obsah")
+    tags = CharField(label=u"Nálepky (oddělené mezerami nebo čárkami)", max_length=255)

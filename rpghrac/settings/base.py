@@ -88,11 +88,14 @@ INSTALLED_APPS = (
 #    'south',
     'ella',
     'ella.core',
+    'ella.articles',
     'ella.newman',
     'ella.newman.licenses',
     'ella.photos',
     'django.contrib.admin',
+
     'djangomarkup',
+    'tagging',
 
     # core django apps
     'django.contrib.auth',
@@ -104,6 +107,7 @@ INSTALLED_APPS = (
 
 AUTH_PROFILE_MODULE = 'rpgplayer.UserProfile'
 LOGIN_REDIRECT_URL = '/'
+SITE_DOMAIN = "rpghrac.cz"
 
 VERSION = rpghrac.__versionstr__
 

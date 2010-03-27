@@ -4,12 +4,15 @@
 
 <h1>Nový zápisek</h1>
 
-<form action="post">
+<form method="post">
 
-{{ article_form.as_table }}
+{{ article_form.as_ul }}
+
+<p>Nový zápisek bude automaticky přidán do Dílny.</p>
 
 <input type="submit" value="Přídat" />
 
 </form>
+
 
 {% endblock %}
