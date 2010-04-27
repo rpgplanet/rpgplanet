@@ -13,25 +13,24 @@ Thus, we're changing module into package:
   * local.py contains (2) for your specific machine. File your defaults there.
 """
 # load base configuration for whole app
-from rpghrac.settings.base import *
+from rpgplanet.settings.base import *
 
 # TODO:
 # use some other name than 'config' if there is some env variable?
-from rpghrac.settings.config import *
+from rpgplanet.settings.config import *
 
 # try to import some settings from /etc/
 try:
     import sys
-    sys.path.insert(0, '/etc/mypage')
-    from mypage_config import *
-    from rpghrac_config import *
+    sys.path.insert(0, '/etc/rpgplanet')
+    from rpgplanet_config import *
     del sys.path[0]
 except ImportError:
     pass
 
 # load any settings for local development
 try:
-    from rpghrac.settings.local import *
+    from rpgplanet.settings.local import *
 except ImportError:
     pass
 

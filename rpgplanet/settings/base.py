@@ -6,7 +6,7 @@ from os.path import dirname, join
 
 import ella
 import django
-import rpghrac
+import rpgplanet as project
 
 
 DEBUG = True
@@ -14,7 +14,7 @@ TEMPLATE_DEBUG = DEBUG
 
 
 ADMINS = (
-    # ('Your Name', 'your_email@domain.com'),
+    ('Almad', 'almad@rpgplanet.cz'),
 )
 MANAGERS = ADMINS
 
@@ -31,7 +31,7 @@ TIME_ZONE = 'Europe/Prague'
 LANGUAGE_CODE = 'cs'
 
 # Site ID
-SITE_ID = 1
+SITE_ID = 2
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -54,13 +54,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'rpgplayer.middleware.SetDomainOwnerMiddleware'
 )
 
-ROOT_URLCONF = 'rpghrac.urls'
+ROOT_URLCONF = 'rpgplanet.urls'
 
 TEMPLATE_DIRS = (
-    join(dirname(rpghrac.__file__), 'templates'),
+    join(dirname(project.__file__), 'templates'),
     join(dirname(ella.__file__), 'newman', 'templates'),
 )
 
@@ -70,32 +69,30 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.auth',
     'ella.newman.context_processors.newman_media',
     'ella.core.context_processors.url_info',
-    'rpghrac.rpgplayer.context_processors.is_site_owner',
 )
 
 INSTALLED_APPS = (
     # internal apps
-    'rpghrac.service',
-    'rpghrac.rpgplayer',
-    'zapisnik',
+    'rpgplanet.service',
+    'rpgplanet.betainfo',
 
-    # external apps
-    'rpgrules',
-    'rpgext.extcore',
-    'rpgext.drd',
-    'rpgext.strepysnu',
-    
-#    'south',
-    'ella',
-    'ella.core',
-    'ella.articles',
-    'ella.newman',
-    'ella.newman.licenses',
-    'ella.photos',
-    'django.contrib.admin',
-
-    'djangomarkup',
-    'tagging',
+#    # external apps
+#    'rpgrules',
+#    'rpgext.extcore',
+#    'rpgext.drd',
+#    'rpgext.strepysnu',
+#
+##    'south',
+#    'ella',
+#    'ella.core',
+#    'ella.articles',
+#    'ella.newman',
+#    'ella.newman.licenses',
+#    'ella.photos',
+#    'django.contrib.admin',
+#
+#    'djangomarkup',
+#    'tagging',
 
     # core django apps
     'django.contrib.auth',
@@ -105,11 +102,11 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 )
 
-AUTH_PROFILE_MODULE = 'rpgplayer.UserProfile'
-LOGIN_REDIRECT_URL = '/'
-SITE_DOMAIN = "rpghrac.cz"
+#AUTH_PROFILE_MODULE = 'rpgplayer.UserProfile'
+#LOGIN_REDIRECT_URL = '/'
+SITE_DOMAIN = "rpgplanet.cz"
 
-VERSION = rpghrac.__versionstr__
+VERSION = project.__versionstr__
 
 CHERRYPY_TEST_SERVER = True
 

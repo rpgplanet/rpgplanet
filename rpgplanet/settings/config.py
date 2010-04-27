@@ -1,7 +1,7 @@
 from os.path import dirname, join
 from tempfile import gettempdir
 
-import rpghrac
+import rpgplanet
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -19,7 +19,7 @@ SECRET_KEY = 'tlucebubenicektlucenabuben$$$'
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-TEST_MEDIA_ROOT = MEDIA_ROOT = join(dirname(rpghrac.__file__), 'media')
+TEST_MEDIA_ROOT = MEDIA_ROOT = join(dirname(rpgplanet.__file__), 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -44,7 +44,7 @@ CACHE_LONG_TIMEOUT = 60*60
 
 NEWMAN_MEDIA_PREFIX = '/static/newman_media/'
 
-SESSION_COOKIE_DOMAIN = '.rpghrac.cz'
+#SESSION_COOKIE_DOMAIN = 'rpgplanet.cz'
 
 MAIN_SUBDOMAIN = 'www'
 
