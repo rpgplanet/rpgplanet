@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
-import rpghrac
+import rpgplanet
 
 setup(
-    name = 'rpghrac',
-    version = rpghrac.__versionstr__,
-    description = 'RPG hrac',
+    name = 'rpgplanet',
+    version = rpgplanet.__versionstr__,
+    description = 'RPG planet',
     long_description = '\n'.join((
-        'RPG hrac',
+        'RPG planet',
         '',
     )),
     author = 'Almad',
