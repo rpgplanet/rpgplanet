@@ -1,0 +1,324 @@
+html, body {
+	background: url('/media/img/betainfo/hlavicka-main.gif') top repeat-x #d2e9be;
+	/*font-family: Tahoma, "Lucida Grande CE", lucida, sans-serif;
+*/
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0 0 15px 0;
+	font-size: 13px;
+}
+#header {
+	position: relative;
+	margin: auto;
+	color: #000;
+	width: 960px;
+	height: 118px;
+	background: url('/media/img/betainfo/hlavicka-red.gif') left repeat-y;
+}
+#logo {
+	position: absolute;
+	left: 15px;
+	top: 40px;
+	width: 334px;
+	height: 39px;
+	background: url('/media/img/betainfo/logo.gif') left top no-repeat;
+}
+#logo h1 {
+	display: none;
+}
+#h-menu {
+	position: absolute;
+	text-align: right;
+	right: 15px;
+	color: #fff;
+	top: 58px;
+	width: 960px;
+}
+#h-menu a {
+	font-size: 15px;
+	border: 1px solid #f5e88f;
+	margin: 0 0 0 7px;
+	text-align: center;
+	display: block;
+	background: url('/media/img/betainfo/hlavicka-menu-a.gif') top repeat-x #300000;
+	width: 100px;
+	height: 20px;
+	float: right;
+	padding: 30px 0 1px 0;
+	text-decoration: none;
+	color: #f5e88f;
+	letter-spacing: 1px;
+}
+#h-menu a:hover {
+	background: url('/media/img/betainfo/hlavicka-menu-a1.gif') top repeat-x #003000;
+}
+#h-menu a:active {
+	border: 1px solid #fff;
+	color: #fff;
+}
+#h-switch {
+	position: absolute;
+	right: 0;
+	background: url('/media/img/betainfo/hlavicka-switch.gif') top right no-repeat #000;
+	width: 345px;
+	height: 19px;
+	text-align: right;
+	padding: 0 15px 0 0;
+}
+#h-switch a {
+	letter-spacing: 0px;
+	font-weight: bold;
+	font-size: 11px;
+	text-decoration: none;
+	color: #f5e88f;
+	position: relative;
+	top: 2px;
+	padding: 1px 4px 0px 4px;
+	border-color: #8ea0b5;
+}
+#h-switch a:hover {
+	color: #fff;
+}
+#h-switch a:active {
+	padding: 0px 3px 1px 3px;
+	border-top: 1px solid;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	color: #fff;
+	border-color: #f5e88f;
+	background-color: #000;
+}
+#h-switch-end {
+	position: absolute;
+	top: 0;
+	left: 960px;
+	height: 19px;
+	width: 130px;
+	background: url('/media/img/betainfo/hlavicka-switch-end.gif') top left no-repeat;
+}
+#login {
+	top: 17px;
+	right: 15px;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 300px;
+	text-align: right;
+}
+#login p {
+	margin: 0;
+	padding: 0;
+}
+.main-menu a {
+	border-top: 1px solid #76975a;
+	border-left: 1px solid #76975a;
+	border-right: 1px solid #76975a;
+	text-decoration: none;
+	color: #000;
+	padding: 2px 4px 1px 4px;
+	font-size: 13px;
+	background: #c3f598;
+}
+.main-menu a:hover {
+	border-color: #2f441c;
+	background: #d7ffb5;
+}
+.main-menu a:active {
+	border-color: #2f441c;
+	background: #f2faeb;
+	padding: 2px 4px 2px 4px;
+}
+#main {
+	padding: 28px 15px 2px 15px;
+	position: relative;
+	margin: auto;
+	color: #000;
+	width: 930px;
+	background: url('/media/img/betainfo/main-green.gif') top repeat-x #a4bc8f;
+}
+#main-white {
+	padding: 15px 15px 8px 15px;
+	margin: auto;
+	background-color: #f2faeb;
+	position: relative;
+	width: 930px;
+}
+/* - - - - - Hlavní prvky - - - - - */
+h2 {
+	display: block;
+	color: #465b33;
+	font-size: 18px;
+	font-weight: normal;
+	padding: 20px 0 0 0;
+	margin: 0 0 10px 0;
+}
+h3 {
+	display: block;
+	color: #465b33;
+	font-size: 15px;
+	font-weight: normal;
+	margin: 15px 0 10px 0;
+	padding: 0 0 1px 0;
+	border-bottom: 1px dashed #c5d4b8;
+	clear: both;
+}
+.headline-h3 {
+	font-size: 13px;
+}
+.side-info {
+	margin: 0 0 20px 0;
+	color: #fff;
+	display: block;
+	width: 230px;
+	float: right;
+	padding: 10px 15px 0 15px;
+	background: url('/media/img/betainfo/side-info.gif') top repeat-x #a4bc8f;
+}
+ul {
+	margin: 0 0 0 10px;
+	padding: 0;
+	list-style: url() #fff;
+}
+li {
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+p {
+	margin: 0 0 15px 0;
+	padding: 0;
+}
+a {
+	color: #990000;
+	text-decoration: underline;
+}
+a:hover {
+	color: #000;
+}
+/* - - - - - Formuláře - - - - - */
+table {
+	margin: 0 0 0 10px;
+	padding: 0;
+}
+tr {
+	padding: 0;
+}
+td {
+	padding: 2px 0 2px 0;
+}
+.column1 {
+	width: 140px;
+	text-align: right;
+	font-style: italic;
+	padding: 0 10px 0 0;
+}
+.column2 {
+	width: 450px;
+}
+.capitals {
+	height: 40px;
+	vertical-align: bottom;
+	font-variant: small-caps;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+input {
+	margin: 0 5px 0 0;
+}
+.form-input {
+	padding: 2px 3px 1px 3px;
+	width: 150px;
+	font-size: 13px;
+	border: 1px solid #c5d4b8;
+}
+.form-input:hover {
+	border-color: #465b33;
+}
+.form-button {
+	padding: 0;
+	height: 23px;
+	font-size: 13px;
+}
+.b-dostupnost {
+	width: 120px;
+}
+.b-pokracovat {
+	width: 90px;
+}
+.b-zrusit {
+	width: 60px;
+}
+.openid {
+	font-style: italic;
+	margin: 0 0 0 10px;
+	padding: 2px 2px 2px 20px;
+	background: url('/media/img/betainfo/openid.gif') left no-repeat;
+}
+.lock {
+	position: absolute;
+	margin: 0 0 0 2px;
+	border: 0;
+}
+.captcha {
+	border: 1px solid #c5d4b8;
+	margin: 0;
+	padding: 0;
+}
+.check-continue {
+	margin: 0 0 0 160px;
+}
+.confirm {
+	height: 30px;
+}
+.cleaner {
+	clear: both;
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	height: 1px;
+	border: none;
+}
+/*#footer {
+	padding: 16px 0 0px 0;
+	margin: auto;
+	background: url('/media/img/betainfo/footer-up.gif') top repeat-x #000;
+	position: relative;
+	width: 960px;
+	height: 50px;
+}
+#footer-d {
+	position: absolute;
+	bottom: 0px;
+	width: 960px;
+	height: 7px;
+	background: url('/media/img/betainfo/footer-down.gif') left no-repeat;
+}
+#footer-m {
+	text-align: center;
+	padding: 15px 0 0 0;
+	position: absolute;
+	color: #fff;
+	width: 800px;
+	height: 35px;
+	left: 80px;
+	background: url('/media/img/betainfo/footer-red.gif') top repeat-y #000;
+}
+*/
+#footer2 {
+	padding: 0;
+	margin: auto;
+	background: url('/media/img/betainfo/footer2-down.gif') top no-repeat;
+	position: relative;
+	width: 960px;
+	height: 7px;
+}
+
+#openid_url {
+	background: url(http://www.openid.net/login-bg.gif) no-repeat;
+	background-color: #fff;
+	background-position: 0 50%;
+	color: #000;
+	padding-left: 18px;
+}
+
