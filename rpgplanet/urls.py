@@ -4,13 +4,13 @@ import django
 from django.conf.urls.defaults import *
 from django.conf import settings
 from django.contrib import admin
+from django.views.generic.simple import redirect_to
 
 import ella
 from ella import newman
 
 admin.autodiscover()
 newman.autodiscover()
-
 
 #urlpatterns = patterns('',)
 
@@ -23,22 +23,17 @@ js_info_dict = {
     'packages': ('ella.newman',),
 }
 
+from rpgplanet.betainfo import urls as betaurls
+
 urlpatterns = patterns('',
-    url('^$', include('betainfo.urls')),
-    url("^zapisnik/new/$", 'zapisnik.views.new', name="zapisnik-new"),
-    url("^zapisnik/dilna/$", 'zapisnik.views.workshop', name="zapisnik-workshop"),
-
-    # ella urls
-    ('^tvorba/', include('ella.core.urls')),
-
-    # serve static files
-    url(r'^%s/(?P<path>.*)$' % settings.TEST_MEDIA_URL.strip('/'), 'django.views.static.serve', {'document_root': settings.TEST_MEDIA_ROOT, 'show_indexes': True}),
+    url(r'^beta/', include(betaurls, namespace="beta")),
+    url(r'^$', redirect_to, {'url' : '/beta/'}),
 )
 
 if settings.DEBUG:
     urlpatterns += patterns('',
         # serve static files
-        (r'^%s/(?P<path>.*)$' % settings.MEDIA_URL.lstrip('/'), 'django.views.static.serve', {'document_root': settings.TEST_MEDIA_ROOT, 'show_indexes': True}),
+        (r'^%s/(?P<path>.*)$' % settings.MEDIA_URL.rstrip('/').lstrip('/'), 'django.views.static.serve', {'document_root': settings.TEST_MEDIA_ROOT, 'show_indexes': True}),
     )
 
 

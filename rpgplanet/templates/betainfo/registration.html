@@ -1,0 +1,18 @@
+{% extends "betainfo/base.html" %}
+
+{% block content %}
+
+<h1>Registrace</h1>
+
+<p>Portál ještě není otevřen. Chcete se toho účastnit? Zanechte v níže uvedeném formuláři svůj e-mail&#8230;a ozveme se Vám.</p>
+
+{% if message %}
+    <ul><li>{{ message }}</li></ul>
+{% endif %}
+
+<form action="." method="POST">
+    {{ form.as_p }}
+    <input type="submit" value="Registruj" />
+</form>
+
+{% endblock %}
