@@ -20,9 +20,12 @@ from rpgplanet.settings.base import *
 from rpgplanet.settings.config import *
 
 # try to import some settings from /etc/
+import os
+import os.path
+venv = os.path.join(os.pardir, os.pardir, os.pardir, 'etc', 'rpgplanet')
 try:
     import sys
-    sys.path.insert(0, '/etc/rpgplanet')
+    sys.path.insert(0, venv)
     from rpgplanet_config import *
     del sys.path[0]
 except ImportError:
