@@ -1,5 +1,0 @@
-#!/bin/bash
-
-export PYTHONPATH=/centrum/djangobaselibrary:$PYTHONPATH
-export DJANGO_SETTINGS_MODULE=djangobaseproject.settings
-
