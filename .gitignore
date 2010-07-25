@@ -1,2 +1,7 @@
 *.py[c|o]
-rpghrac/settings/local.py
+paver-minilib.zip
+*.egg
+*.egg-info
+build
+dist
+rpgplanet/settings/local.py
