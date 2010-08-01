@@ -3,11 +3,15 @@ from paver.setuputils import setup
 
 from setuptools import find_packages
 
-VERSION = '0.1'
+
+VERSION = (0, 1, 0)
+
+__version__ = VERSION
+__versionstr__ = '.'.join(map(str, VERSION))
 
 setup(
     name = 'rpgplanet',
-    version = VERSION,
+    version = __versionstr__,
     description = 'RPG planet',
     long_description = '\n'.join((
         'RPG planet',
