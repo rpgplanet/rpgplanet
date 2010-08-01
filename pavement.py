@@ -50,7 +50,7 @@ def freeze_requirements():
         
 
 @task
-@needs('freeze_requirements', 'setuptools.command.sdist')
+@needs('generate_setup', 'freeze_requirements', 'setuptools.command.sdist')
 def sdist():
     """ Custom sdist """
 
