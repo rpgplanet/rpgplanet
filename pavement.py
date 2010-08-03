@@ -36,10 +36,6 @@ setup(
         'Programming Language :: Python',
         'Framework :: Django',
     ],
-    entry_points = {
-        'setuptools.file_finders': ['dummy = setuptools_entry:dummylsfiles'],
-        'setuptools.installation': ['eggsecutable = rpgplanet.manage'],
-    },
     setup_requires = [
         'setuptools_dummy',
     ],
