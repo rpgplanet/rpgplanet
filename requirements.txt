@@ -9,5 +9,5 @@ anyjson
 -e git://github.com/Almad/sneakylang.git#egg=sneakylang
 -e git://github.com/Almad/python-czechtile.git#egg=czechtile
 
--e git://github.com/Almad/ella.git@rpgplanet#egg=ella
+-e git://github.com/rpgplanet/ella.git@rpgplanet#egg=ella
 -e git://github.com/ella/django-markup.git#egg=djangomarkup
