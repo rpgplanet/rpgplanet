@@ -12,8 +12,15 @@ Thus, we're changing module into package:
     runnable on most expected machines
   * local.py contains (2) for your specific machine. File your defaults there.
 """
+
+# shared config
+from rpgcommon.settings.base import *
+
 # load base configuration for whole app
 from rpgplanet.settings.base import *
+
+# shared config
+from rpgcommon.settings.config import *
 
 # TODO:
 # use some other name than 'config' if there is some env variable?
@@ -32,6 +39,12 @@ except ImportError:
     pass
 
 # load any settings for local development
+try:
+    from rpgcommon.settings.local import *
+except ImportError:
+    pass
+
+
 try:
     from rpgplanet.settings.local import *
 except ImportError:

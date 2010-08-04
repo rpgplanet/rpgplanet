@@ -17,6 +17,9 @@ DATABASE_PORT = ''
 
 SECRET_KEY = 'tlucebubenicektlucenabuben$$$'
 
+FACEBOOK_APPLICATION_ID = '147869781892995'
+
+
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 TEST_MEDIA_ROOT = MEDIA_ROOT = join(dirname(rpgplanet.__file__), 'media')
@@ -45,6 +48,4 @@ CACHE_LONG_TIMEOUT = 60*60
 NEWMAN_MEDIA_PREFIX = '/static/newman_media/'
 
 #SESSION_COOKIE_DOMAIN = 'rpgplanet.cz'
-
-MAIN_SUBDOMAIN = 'www'
 

@@ -1,84 +1,69 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs">
   <head>
-    <meta http-equiv="content-type" content="aplication/xhtml; charset=UTF-8" />
-    <meta name="keywords" content="rpghrac, rpg hrac, rpgplanet, rpg planet" />
-    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/basic.css" />
-    <title>{% block title %}RPG Hráč{% endblock %}</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="content-language" content="cs" />
+	<meta name="robots" content="index,follow" />
+	<meta name="googlebot" content="index,follow" />
+	<meta name="description" content="RPGPlanet" />
+	<meta name="keywords" content="RPG, RPGPlanet" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<meta http-equiv="MSThemeCompatible" content="no" />
+	<meta name="MS.LOCALE" content="cs" />
+	<meta name="autosize" content="off" />
+
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/betainfo.css" />
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15065253-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  })();
+</script>
+    <title>RPGPlanet | Tester Beta</title>
   </head>
-
   <body>
-
     <div id="header">
-      <div id="h-left">
-        <a href="http://rpghrac.cz" title="Rpghrac.cz"><img src="{{ MEDIA_URL }}img/rpghrac-logo.gif" class="logo" alt="logo Rpghráč" /></a>
-        <div id="h-left-tape"></div>
+      <div id="logo">
+        <h1>RPGPlanet | Tester Beta</h1>
       </div>
-      <div id="h-right">
-        <div id="h-topmenu">
-          <ul>
-          <li><a href="">RPGHRÁČ</a></li>
-          <li><a href="http://rpgplanet.cz" title="">RPGPLANET</a></li>
-          </ul>
-        </div>
-
-        <div id="h-userinfo">
-          {% if user.is_authenticated %}
-              <h2>{{ user.username }}</h2>
-              <p class="userinfo-first"><a href="" title="">přípomínky: 2</a> &bull; <a href="" title="">diskuze: 7</a></p>
-              <p class="userinfo-second"><a href="" title="">pošta</a> (3) &bull; <a href="" title="">nastavení</a> &bull; <a href="" title="">odhlásit</a></p>
-          {% else %}
-              <h2>Poutník s kápí</h2>
-              <p class="userinfo-first"><a href="{% url rpgplayer-login %}" title="přihlášení/registrace">Poodhal svou tvář</a></p>
-          {% endif %}
-        </div>
+      <div id="h-switch">
+        <a href="http://rpghrac.cz/">RPGHRÁČ</a>&nbsp;<a href="http://rpgpedia.cz/">RPGPEDIA</a>&nbsp;<a href="http://rpgplanet.cz/">RPGPLANET</a>
+      </div>
+      <div id="h-switch-end"></div>
+      <div id="h-menu">
+        <a href="{% url registration:inviteform %}">Registrace</a>
       </div>
     </div>
-
-
-    <div id="content">
-      <div id="sidebar"><div id="sidebar-content">
-        <div id="s-name">
-          <h2>Almad</h2>
+    <div id="main">
+        <!--
+        <div id="login">
+            <p>Neznámý poutník</p>
         </div>
-        <div id="s-profile">
-          <img src="{{ MEDIA_URL }}img/avatars/almad.png" alt="Almad - avatar" width="40" height="50" />
-          <div id="s-profile-text">
-            <p>přihlášen<br />profil &bull; napsat zprávu</p>
-          </div>
-        </div>
-        <div class="s-selections">
-          <div class="s-selections-menu">
-            <ul>
-                <li><a href="{% url zapisnik-home %}">ZÁPISNÍK</a></li>
-                <li><a href="">TVORBA</a></li>
-            </ul>
-          </div>
-          <div class="s-selections-main">
-            <div class="s-selection-sort">
-              <a href=""><img src="{{ MEDIA_URL }}img/buttons/s-selection-sort-minus.gif" alt="skrýt" /></a>&nbsp;<a href="">DOKONČENÉ</a>
-            </div>
-            <div class="s-selection-content">
-              <p>ČLÁNKY</p>
-              <a href="">Máte doma draka?</a><br />
-              <a href="">Jak psát příspěvky</a>
-            </div>
-            <div class="s-selection-sort">
-              <a href=""><img src="{{ MEDIA_URL }}img/buttons/s-selection-sort-minus.gif" alt="skrýt" /></a>&nbsp;<a href="">ROZPRACOVANÉ</a>
-            </div>
-            <!--
-            <div class="s-selection-sort">
-              <a href=""><img src="{{ MEDIA_URL }}img/buttons/s-selection-sort-plus.gif" alt="zobrazit" /></a>&nbsp;<a href="">GALERIE</a>
-            </div>
-            -->
-          </div>
-        </div>
-      </div></div>
-      <div id="main"><div id="main-content">{% block content %}Admin to rozbil, tady má být nějaký obsah. Řekněte mu to prosím, má to rozbitý!{% endblock %}</div></div>
-      <hr class="cleaner" />
+        -->
     </div>
-    <div id="footer">
-      <p>Footer</p>
+    <div id="main-white">
+	{% block content %}Bugíska! Utíkejte za Almadem a hlasitě křičte, kde to jste!{% endblock %}
     </div>
- </body>
+    <div id="footer2"></div>
+
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: {{ facebook_application_id }}, status: true, cookie: true,
+             xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/cs_CZ/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+  </body>
 </html>

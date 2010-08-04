@@ -2,16 +2,21 @@
 
 {% block content %}
 
-<h1>Přihlášení</h1>
+<h1>Registrace</h1>
+<p><strong>Portál je nyní v uzavřeném beta provozu. Registrace funguje pouze vybraným uživatelům. Pokud chcete být informováni o veřejné betě, pak se <a href="{% url beta:registration %}">přihlašte do našeho maillistu</a>.</strong></p>
+
+<h2>Facebook</h2>
+<p>Máte účet na Facebooku? Pak se prostě přihlašte.</p>
+
+<fb:login-button></fb:login-button>
 
 
-
-<form action="." method="post">
+<!--<form action="." method="post">
 <ul>
     {{ form.as_ul }}
     <li><input type="submit" value="Přihlaš" /></li>
 </ul>
-</form>
+</form>-->
 
 <h1>Registrace</h1>
 {% comment %}
