@@ -24,11 +24,13 @@ js_info_dict = {
 }
 
 from rpgplanet.betainfo import urls as betaurls
-from rpgplanet.registration import urls as registerurls
+from rpgplanet.service import urls as serviceurls
+from rpgcommon.user import urls as userurls
 
 urlpatterns = patterns('',
     url(r'^beta/', include(betaurls, namespace="beta")),
-    url(r'^registrace/', include(registerurls, namespace="registration")),
+    url(r'^uzivatel/', include(userurls, namespace="registration")),
+    url(r'^', include(serviceurls, namespace="service")),
     url(r'^$', redirect_to, {'url' : '/beta/'}),
 )
 

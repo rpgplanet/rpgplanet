@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h1>{{ displayed_user.username }}</h1>
+
+<p>Jeho stránky jsou na adrese <a href="//{{ user_profile.site.domain }}" title="Domovská stránka uživatele {{ displayed_user.username }}">{{ user_profile.site.domain }}</a>.</p>
+
+{% endblock %}
