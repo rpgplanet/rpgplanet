@@ -20,14 +20,8 @@ SECRET_KEY = 'tlucebubenicektlucenabuben$$$'
 FACEBOOK_APPLICATION_ID = '147869781892995'
 GOOGLE_ANALYTICS_CODE = 'UA-15065253-1'
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
-TEST_MEDIA_ROOT = MEDIA_ROOT = join(dirname(rpgplanet.__file__), 'media')
+STATIC_ROOT = join(dirname(rpgplanet.__file__), 'static')
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash if there is a path component (optional in other cases).
-# Examples: "http://media.lawrence.com", "http://example.com/media/"
-TEST_MEDIA_URL = MEDIA_URL = '/media/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.

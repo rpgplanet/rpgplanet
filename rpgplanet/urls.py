@@ -37,7 +37,9 @@ urlpatterns = patterns('',
 if settings.DEBUG:
     urlpatterns += patterns('',
         # serve static files
-        (r'^%s/(?P<path>.*)$' % settings.MEDIA_URL.rstrip('/').lstrip('/'), 'django.views.static.serve', {'document_root': settings.TEST_MEDIA_ROOT, 'show_indexes': True}),
+        (r'^%s/(?P<path>.*)$' % settings.STATIC_URL.rstrip('/').lstrip('/'), 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
+        # serve static files
+        (r'^%s/(?P<path>.*)$' % settings.MEDIA_URL.rstrip('/').lstrip('/'), 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
     )
 
 

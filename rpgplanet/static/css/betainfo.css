@@ -1,5 +1,5 @@
 html, body {
-	background: url('/media/img/betainfo/hlavicka-main.gif') top repeat-x #d2e9be;
+	background: url('../img/betainfo/hlavicka-main.gif') top repeat-x #d2e9be;
 	/*font-family: Tahoma, "Lucida Grande CE", lucida, sans-serif;
 */
 	font-family: sans-serif;
@@ -13,7 +13,7 @@ html, body {
 	color: #000;
 	width: 960px;
 	height: 118px;
-	background: url('/media/img/betainfo/hlavicka-red.gif') left repeat-y;
+	background: url('../img/betainfo/hlavicka-red.gif') left repeat-y;
 }
 #logo {
 	position: absolute;
@@ -21,7 +21,7 @@ html, body {
 	top: 40px;
 	width: 334px;
 	height: 39px;
-	background: url('/media/img/betainfo/logo.gif') left top no-repeat;
+	background: url('../img/betainfo/logo.gif') left top no-repeat;
 }
 #logo h1 {
 	display: none;
@@ -40,7 +40,7 @@ html, body {
 	margin: 0 0 0 7px;
 	text-align: center;
 	display: block;
-	background: url('/media/img/betainfo/hlavicka-menu-a.gif') top repeat-x #300000;
+	background: url('../img/betainfo/hlavicka-menu-a.gif') top repeat-x #300000;
 	width: 100px;
 	height: 20px;
 	float: right;
@@ -50,7 +50,7 @@ html, body {
 	letter-spacing: 1px;
 }
 #h-menu a:hover {
-	background: url('/media/img/betainfo/hlavicka-menu-a1.gif') top repeat-x #003000;
+	background: url('../img/betainfo/hlavicka-menu-a1.gif') top repeat-x #003000;
 }
 #h-menu a:active {
 	border: 1px solid #fff;
@@ -59,7 +59,7 @@ html, body {
 #h-switch {
 	position: absolute;
 	right: 0;
-	background: url('/media/img/betainfo/hlavicka-switch.gif') top right no-repeat #000;
+	background: url('../img/betainfo/hlavicka-switch.gif') top right no-repeat #000;
 	width: 345px;
 	height: 19px;
 	text-align: right;
@@ -94,7 +94,7 @@ html, body {
 	left: 960px;
 	height: 19px;
 	width: 130px;
-	background: url('/media/img/betainfo/hlavicka-switch-end.gif') top left no-repeat;
+	background: url('../img/betainfo/hlavicka-switch-end.gif') top left no-repeat;
 }
 #login {
 	top: 17px;
@@ -134,7 +134,7 @@ html, body {
 	margin: auto;
 	color: #000;
 	width: 930px;
-	background: url('/media/img/betainfo/main-green.gif') top repeat-x #a4bc8f;
+	background: url('../img/betainfo/main-green.gif') top repeat-x #a4bc8f;
 }
 #main-white {
 	padding: 15px 15px 8px 15px;
@@ -172,7 +172,7 @@ h3 {
 	width: 230px;
 	float: right;
 	padding: 10px 15px 0 15px;
-	background: url('/media/img/betainfo/side-info.gif') top repeat-x #a4bc8f;
+	background: url('../img/betainfo/side-info.gif') top repeat-x #a4bc8f;
 }
 ul {
 	margin: 0 0 0 10px;
@@ -253,7 +253,7 @@ input {
 	font-style: italic;
 	margin: 0 0 0 10px;
 	padding: 2px 2px 2px 20px;
-	background: url('/media/img/betainfo/openid.gif') left no-repeat;
+	background: url('../img/betainfo/openid.gif') left no-repeat;
 }
 .lock {
 	position: absolute;
@@ -282,7 +282,7 @@ input {
 /*#footer {
 	padding: 16px 0 0px 0;
 	margin: auto;
-	background: url('/media/img/betainfo/footer-up.gif') top repeat-x #000;
+	background: url('../img/betainfo/footer-up.gif') top repeat-x #000;
 	position: relative;
 	width: 960px;
 	height: 50px;
@@ -292,7 +292,7 @@ input {
 	bottom: 0px;
 	width: 960px;
 	height: 7px;
-	background: url('/media/img/betainfo/footer-down.gif') left no-repeat;
+	background: url('../img/betainfo/footer-down.gif') left no-repeat;
 }
 #footer-m {
 	text-align: center;
@@ -302,13 +302,13 @@ input {
 	width: 800px;
 	height: 35px;
 	left: 80px;
-	background: url('/media/img/betainfo/footer-red.gif') top repeat-y #000;
+	background: url('../img/betainfo/footer-red.gif') top repeat-y #000;
 }
 */
 #footer2 {
 	padding: 0;
 	margin: auto;
-	background: url('/media/img/betainfo/footer2-down.gif') top no-repeat;
+	background: url('../img/betainfo/footer2-down.gif') top no-repeat;
 	position: relative;
 	width: 960px;
 	height: 7px;
