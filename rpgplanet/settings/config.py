@@ -18,7 +18,7 @@ DATABASE_PORT = ''
 SECRET_KEY = 'tlucebubenicektlucenabuben$$$'
 
 FACEBOOK_APPLICATION_ID = '147869781892995'
-
+GOOGLE_ANALYTICS_CODE = 'UA-15065253-1'
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"

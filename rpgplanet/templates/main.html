@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/betainfo.css" />
 <script type="text/javascript">
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-15065253-1']);
+  _gaq.push(['_setAccount', '{{ google_analytics_code }}']);
   _gaq.push(['_trackPageview']);
 
   (function() {
@@ -55,8 +55,12 @@
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
-    FB.init({appId: {{ facebook_application_id }}, status: true, cookie: true,
-             xfbml: true});
+    FB.init({
+            appId: {{ facebook_application_id }},
+            status: true,
+            cookie: true,
+            xfbml: true
+    });
   };
   (function() {
     var e = document.createElement('script'); e.async = true;
@@ -64,6 +68,10 @@
       '//connect.facebook.net/cs_CZ/all.js';
     document.getElementById('fb-root').appendChild(e);
   }());
+
+  FB.Event.subscribe('auth.login', function(response) {
+    window.location.reload();
+  });
 </script>
   </body>
 </html>
