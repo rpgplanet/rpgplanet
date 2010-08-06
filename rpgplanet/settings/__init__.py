@@ -26,24 +26,28 @@ from rpgcommon.settings.config import *
 # use some other name than 'config' if there is some env variable?
 from rpgplanet.settings.config import *
 
-# try to import some settings from /etc/
-import os
-import os.path
-venv = os.path.join(os.pardir, os.pardir, os.pardir, 'etc', 'rpgplanet')
+# try to import some settings from $venv/../etc/
+import sys
+from os.path import abspath, dirname, join, pardir
+
+sys.path.insert(0, abspath(join(dirname(__file__), pardir, pardir, pardir, pardir, 'etc')))
 try:
-    import sys
-    sys.path.insert(0, venv)
-    from rpgplanet_config import *
-    del sys.path[0]
+    from rpgcommon_config import *
 except ImportError:
     pass
+
+try:
+    from rpgplanet_config import *
+except ImportError:
+    pass
+
+del sys.path[0]
 
 # load any settings for local development
 try:
     from rpgcommon.settings.local import *
 except ImportError:
     pass
-
 
 try:
     from rpgplanet.settings.local import *
