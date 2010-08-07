@@ -34,6 +34,7 @@ urlpatterns = patterns('',
     url('^newman/', include(newman.site.urls)),
 
     url(r'^', include(serviceurls, namespace="service")),
+    url(r'^', include(userurls, namespace="user")),
     url(r'^$', redirect_to, {'url' : '/beta/'}),
 )
 
