@@ -30,6 +30,9 @@ from rpgcommon.user import urls as userurls
 urlpatterns = patterns('',
     url(r'^beta/', include(betaurls, namespace="beta")),
     url(r'^uzivatel/', include(userurls, namespace="registration")),
+
+    url('^newman/', include(newman.site.urls)),
+
     url(r'^', include(serviceurls, namespace="service")),
     url(r'^$', redirect_to, {'url' : '/beta/'}),
 )
