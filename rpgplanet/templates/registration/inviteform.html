@@ -5,10 +5,26 @@
 <h1>Registrace</h1>
 <p><strong>Portál je nyní v uzavřeném beta provozu. Registrace funguje pouze vybraným uživatelům. Pokud chcete být informováni o veřejné betě, pak se <a href="{% url beta:registration %}">přihlašte do našeho maillistu</a>.</strong></p>
 
+{% if message %}
+<p><strong>{{ message }}</strong></p>
+{% endif %}
+
 <h2>Facebook</h2>
 <p>Máte účet na Facebooku? Pak se prostě přihlašte.</p>
 
-<fb:login-button></fb:login-button>
+
+<fb:login-button perms="email"></fb:login-button>
+
+<noscript><p>Pro přihlášení pomocí facebooku je nutné mít zapnutý JavaScript</p></noscript>
+
+<div id="fb_form_wrapper" style="display:none">
+<p>Díky! Jestli chceš, můžeš si tu nastavit svoji přezdívku:</p>
+<form action="." method="post">
+    {{ fb_form.as_p }}
+    <input type="submit" value="Dokonči registraci" name="facebook_registration" />
+</form>
+</div>
+
 
 <h2>OpenID</h2>
 <p>OpenID? Bude s pěknými ikonkami, až nám je někdo navrhne.</p>
@@ -19,4 +35,39 @@
 <input type="submit" value="Registruj" name="traditional_registration" />
 </form>
 
+
+<div id="fb-root"></div>
+<script>
+
+  window.fbAsyncInit = function() {
+    FB.init({
+            appId: {{ facebook_application_id }},
+            status: true,
+            cookie: true,
+            xfbml: true
+    });
+
+    FB.getLoginStatus(function(response) {
+      if (response.session) {
+        // user logged in Facebook, show im registration form and hide fb login button
+        document.getElementById('fb_form_wrapper').style.display = '';
+        document.getElementsByTagName('fb:login-button')[0].style.display = 'none';
+      } else {
+          // not yet, show him form after login
+          FB.Event.subscribe('auth.login', function(response) {
+              // on successfull registration, show form to complete it
+              document.getElementById('fb_form_wrapper').style.display = '';
+              document.getElementsByTagName('fb:login-button')[0].style.display = 'none';
+          });
+      }
+    });
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/cs_CZ/all.js';
+    e.async = true;
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
 {% endblock %}

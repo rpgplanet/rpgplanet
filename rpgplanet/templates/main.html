@@ -52,26 +52,5 @@
     </div>
     <div id="footer2"></div>
 
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-            appId: {{ facebook_application_id }},
-            status: true,
-            cookie: true,
-            xfbml: true
-    });
-  };
-  (function() {
-    var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol +
-      '//connect.facebook.net/cs_CZ/all.js';
-    document.getElementById('fb-root').appendChild(e);
-  }());
-
-  FB.Event.subscribe('auth.login', function(response) {
-    window.location.reload();
-  });
-</script>
   </body>
 </html>
