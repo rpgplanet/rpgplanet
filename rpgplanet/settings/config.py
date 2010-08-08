@@ -18,7 +18,7 @@ DATABASE_PORT = ''
 SECRET_KEY = 'tlucebubenicektlucenabuben$$$'
 
 FACEBOOK_APPLICATION_ID = '147869781892995'
-GOOGLE_ANALYTICS_CODE = 'UA-15065253-1'
+GOOGLE_ANALYTICS_CODE = 'UA-16432389-1'
 
 STATIC_ROOT = join(dirname(rpgplanet.__file__), 'static')
 
