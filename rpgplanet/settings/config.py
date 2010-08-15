@@ -7,14 +7,6 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 ENABLE_DEBUG_URLS = DEBUG
 
-DATABASE_ENGINE = 'sqlite3'
-DATABASE_NAME = join(gettempdir(), 'rpghrac.db')
-TEST_DATABASE_NAME = join(gettempdir(), 'rpghrac-test.db')
-DATABASE_USER = ''
-DATABASE_PASSWORD = ''
-DATABASE_HOST = ''
-DATABASE_PORT = ''
-
 SECRET_KEY = 'tlucebubenicektlucenabuben$$$'
 
 FACEBOOK_APPLICATION_ID = '147869781892995'
