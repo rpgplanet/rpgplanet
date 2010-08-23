@@ -1,3 +1,6 @@
+from os import chdir
+from os.path import join, pardir, abspath, dirname, split
+
 from paver.easy import *
 from paver.setuputils import setup
 
@@ -44,6 +47,13 @@ setup(
     ],
 )
 
+options(
+    citools = Bunch(
+        rootdir = abspath(dirname(__file__)),
+        project_module = "rpgplanet",
+    ),
+)
+
 @task
 def freeze_requirements():
     sh('pip freeze -r requirements.txt > freezed-requirements.txt')
@@ -58,3 +68,25 @@ def sdist():
 def deploy_production():
     """ Deploy to production server """
     sh('fab deploy')
+
+try:
+    from citools.pavement import unit
+except ImportError:
+    pass
+
+@task
+@consume_args
+def integrate_project(args):
+    """ Run integration tests """
+    from citools.pavement import djangonize_test_environment
+
+    djangonize_test_environment(options.project_module)
+
+    chdir(join(options.rootdir, "tests", "integration"))
+
+    import nose
+
+    nose.run_exit(
+        argv = ["nosetests", "--with-django", "--with-selenium", "--with-djangoliveserver", "-w", join(options.rootdir, "tests", "integration")]+args,
+    )
+

@@ -5,3 +5,4 @@ paver-minilib.zip
 build
 dist
 rpgplanet/settings/local.py
+/tests/*/*/local.py
