@@ -90,3 +90,16 @@ def integrate_project(args):
         argv = ["nosetests", "--with-django", "--with-selenium", "--with-djangoliveserver", "-w", join(options.rootdir, "tests", "integration")]+args,
     )
 
+@task
+def run():
+    """ Run server """
+    chdir(options.name)
+    sh('./manage.py runserver')
+
+@task
+def shell():
+    """ Enter Django shell """
+    chdir(options.name)
+    sh('./manage.py shell')
+
+
