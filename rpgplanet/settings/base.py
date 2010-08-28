@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Django base settings for rpghrac project.
+from rpgcommon.settings.base import *
 
 from os.path import dirname, join
 
@@ -60,4 +60,8 @@ MIDDLEWARE_CLASSES = (
     "django.middleware.transaction.TransactionMiddleware",
 
 #    'ella.core.context_processors.url_info',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'ella.newman.context_processors.newman_media',
 )

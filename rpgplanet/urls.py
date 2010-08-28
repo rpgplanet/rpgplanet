@@ -31,6 +31,7 @@ urlpatterns = patterns('',
     url(r'^beta/', include(betaurls, namespace="beta")),
     url(r'^uzivatel/', include(userurls, namespace="registration")),
 
+    url('^admin/', include(admin.site.urls)),
     url('^newman/', include(newman.site.urls)),
 
     url(r'^', include(serviceurls, namespace="service")),
@@ -40,13 +41,15 @@ urlpatterns = patterns('',
 
 if settings.DEBUG:
     urlpatterns += patterns('',
+        # serve newman media static files
+        (r'^%s/(?P<path>.*)$' % settings.NEWMAN_MEDIA_PREFIX.strip('/'), 'django.views.static.serve',
+            {'document_root': settings.NEWMAN_MEDIA_ROOT, 'show_indexes': True,}),
+#        # serve newman static files
+        (r'^%s/newman/(?P<path>.*)$' % settings.STATIC_URL.strip('/'), 'django.views.static.serve',
+            {'document_root': settings.STATIC_ROOT, 'show_indexes': True,}),
         # serve static files
         (r'^%s/(?P<path>.*)$' % settings.STATIC_URL.rstrip('/').lstrip('/'), 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes': True}),
-        # serve static files
+        # serve media files
         (r'^%s/(?P<path>.*)$' % settings.MEDIA_URL.rstrip('/').lstrip('/'), 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
     )
 
-
-
-handler404 = 'ella.core.views.page_not_found'
-handler500 = 'ella.core.views.handle_error'

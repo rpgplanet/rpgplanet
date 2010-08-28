@@ -1,7 +1,7 @@
-from os.path import dirname, join
-from tempfile import gettempdir
+from os.path import dirname, join, abspath
 
 import rpgplanet
+import ella
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -19,10 +19,12 @@ STATIC_ROOT = join(dirname(rpgplanet.__file__), 'static')
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/static/admin_media/'
+NEWMAN_MEDIA_PREFIX = '/static/newman_media/'
+
+NEWMAN_MEDIA_ROOT = abspath(join(dirname(ella.__file__), 'newman', 'media'))
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = '^980$0s46q1(toq*mu23m41_ac_@vwy)+mig=ka_97$m0^fh)v'
-
 
 # we want to reset whole cache in test
 # until we do that, don't use cache
@@ -30,8 +32,6 @@ CACHE_BACKEND = 'dummy://'
 CACHE_TIMEOUT = 10*60
 CACHE_SHORT_TIMEOUT = 1*60
 CACHE_LONG_TIMEOUT = 60*60
-
-NEWMAN_MEDIA_PREFIX = '/static/newman_media/'
 
 #SESSION_COOKIE_DOMAIN = 'rpgplanet.cz'
 
