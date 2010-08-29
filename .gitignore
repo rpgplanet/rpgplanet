@@ -6,3 +6,6 @@ build
 dist
 rpgplanet/settings/local.py
 /tests/*/*/local.py
+freezed-requirements.txt
+nbproject/
+pip-log.txt
