@@ -37,3 +37,4 @@ SECRET_KEY = '88b-01f^x4lh$-s5-hdccnicekg07)niir2g6)93!0#k(=mfv$'
 CACHE_BACKEND = 'dummy://'
 
 
+DYNAMIC_RPGPLAYER_CATEGORIES = []
