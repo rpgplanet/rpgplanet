@@ -5,12 +5,22 @@ from djangosanetesting.utils import mock_settings
 from rpgcommon.user.user import create_user
 from ella.core.models import Category
 
-class TestAndrosRegistration(DatabaseTestCase):
+class TestRegistration(DatabaseTestCase):
 
     def test_andros_properly_slugified(self):
         user = create_user(u"Andrej Tokarčík", "xxx", "tester@example.com")
 
         self.assert_equals('andrej-tokarcik', user.get_profile().slug)
+
+    def test_registering_same_email_causes_error(self):
+        create_user(u"Andrej Tokarčík", "xxx", "tester@example.com")
+
+        self.assert_raises(ValueError, create_user, u"Neumětel", "xerox", "tester@example.com")
+
+    def test_registering_same_slug_error(self):
+        create_user(u"Andrej Tokarčík", "xxx", "tester@example.com")
+
+        self.assert_raises(ValueError, create_user, u" Andrej-Tokarcik   ", "xerox", "hustor@example.com")
 
 class TestCategoryHandling(DatabaseTestCase):
 
