@@ -16,3 +16,9 @@ def user_profile(request, user_slug, template='user/profile.html'):
         }
     )
 
+
+def tos(request, template='tos.html'):
+    return direct_to_template(request, template,
+        {
+        }
+    )
