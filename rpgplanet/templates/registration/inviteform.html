@@ -5,6 +5,8 @@
 <h1>Registrace</h1>
 <p><strong>Portál je nyní v uzavřeném beta provozu. Registrace funguje pouze vybraným uživatelům. Pokud chcete být informováni o veřejné betě, pak se <a href="{% url beta:registration %}">přihlašte do našeho maillistu</a>.</strong></p>
 
+<p><strong>Registrací souhlasíte s <a href="{% url service:tos %}">Podmínkami Užití</a>.</strong> Nezávazné a stručné shrnutí: souhlasíte s výchozí publikací textů pod Creative Commons a že se budete chovat slušně.</p>
+
 {% if message %}
 <p><strong>{{ message }}</strong></p>
 {% endif %}
