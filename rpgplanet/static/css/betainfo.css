@@ -142,7 +142,23 @@ html, body {
 	background-color: #f2faeb;
 	position: relative;
 	width: 930px;
+        -webkit-border-bottom-right-radius: 15px;
+        -webkit-border-bottom-left-radius: 15px;
+        -moz-border-radius-bottomright: 15px;
+        -moz-border-radius-bottomleft: 15px;
+        border-bottom-right-radius: 15px;
+        border-bottom-left-radius: 15px;
 }
+
+#footer2 {
+	margin: 0.5em;
+	position: relative;
+	width: 960px;
+        text-align: center;
+}
+
+
+
 /* - - - - - Hlavní prvky - - - - - */
 h2 {
 	display: block;
@@ -279,41 +295,6 @@ input {
 	height: 1px;
 	border: none;
 }
-/*#footer {
-	padding: 16px 0 0px 0;
-	margin: auto;
-	background: url('../img/betainfo/footer-up.gif') top repeat-x #000;
-	position: relative;
-	width: 960px;
-	height: 50px;
-}
-#footer-d {
-	position: absolute;
-	bottom: 0px;
-	width: 960px;
-	height: 7px;
-	background: url('../img/betainfo/footer-down.gif') left no-repeat;
-}
-#footer-m {
-	text-align: center;
-	padding: 15px 0 0 0;
-	position: absolute;
-	color: #fff;
-	width: 800px;
-	height: 35px;
-	left: 80px;
-	background: url('../img/betainfo/footer-red.gif') top repeat-y #000;
-}
-*/
-#footer2 {
-	padding: 0;
-	margin: auto;
-	background: url('../img/betainfo/footer2-down.gif') top no-repeat;
-	position: relative;
-	width: 960px;
-	height: 7px;
-}
-
 #openid_url {
 	background: url(http://www.openid.net/login-bg.gif) no-repeat;
 	background-color: #fff;
