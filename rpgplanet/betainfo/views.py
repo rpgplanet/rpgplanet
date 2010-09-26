@@ -3,7 +3,7 @@ from django.views.generic.simple import direct_to_template
 
 from django.forms import Form, EmailField, ValidationError
 
-from betainfo.models import BetaCandidate
+from rpgplanet.betainfo.models import BetaCandidate
 
 class EmailForm(Form):
     email = EmailField()
