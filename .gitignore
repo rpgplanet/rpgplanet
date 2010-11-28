@@ -1,5 +1,4 @@
 *.py[c|o]
-paver-minilib.zip
 *.egg
 *.egg-info
 build
