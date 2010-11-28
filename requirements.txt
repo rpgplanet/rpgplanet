@@ -6,10 +6,10 @@ setuptools_dummy
 html5lib
 anyjson
 
-git+https://github.com/Almad/sneakylang.git#egg=sneakylang
-git+https://github.com/Almad/python-czechtile.git#egg=czechtile
+git+git://github.com/Almad/sneakylang.git#egg=sneakylang
+git+git://github.com/Almad/python-czechtile.git#egg=czechtile
 
-git+https://github.com/rpgplanet/ella.git#egg=ella
+git+git://github.com/rpgplanet/ella.git#egg=ella
 
-git+https://github.com/rpgplanet/python-sdk.git#egg=facebook
+git+git://github.com/rpgplanet/python-sdk.git#egg=facebook
 
