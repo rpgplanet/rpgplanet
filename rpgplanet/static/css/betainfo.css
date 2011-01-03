@@ -151,10 +151,11 @@ html, body {
 }
 
 #footer2 {
-	margin: 0.5em;
-	position: relative;
-	width: 960px;
-        text-align: center;
+  margin: auto;
+  position: relative;
+  width: 960px;
+  text-align: center;
+  padding-top: 0.5em;
 }
 
 
